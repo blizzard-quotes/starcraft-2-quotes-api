@@ -1,7 +1,7 @@
 {
   "name": "starcraft-2-quotes-api",
-  "version": "1.0.0",
-  "description": "Simple API for retrieving Starcraft III quotes",
+  "version": "1.0.1",
+  "description": "Simple API for retrieving Starcraft II quotes",
   "keywords": [
     "starcraf 2",
     "sc2",
