@@ -1,6 +1,6 @@
 {
   "name": "starcraft-2-quotes-api",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Simple API for retrieving Starcraft II quotes",
   "keywords": [
     "starcraft 2",
@@ -22,7 +22,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@blizzard-quotes/starcraft-2-quotes": "^1.1.0",
+    "@blizzard-quotes/starcraft-2-quotes": "^1.1.1",
     "validator": "^12.2.0"
   },
   "devDependencies": {
