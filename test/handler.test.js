@@ -97,7 +97,7 @@ const UNITS = [
   'Talandar',
   'Vorazun',
   'Zeratul',
-  'Maar'
+  'Maar',
 ];
 
 const ACTIONS = [
@@ -108,7 +108,7 @@ const ACTIONS = [
   'Attack',
   'Confirming',
   'Pissed',
-  'Other'
+  'Other',
 ];
 
 test('Ensure quotes returns 200 with all quotes', async () => {
@@ -122,14 +122,14 @@ test('Ensure quotes returns 200 with all quotes', async () => {
 test('Ensure quotes returns 200 with only terran quotes', async () => {
   let response = await handler.quotes({
     multiValueQueryStringParameters: {
-      faction: ['Human']
-    }
+      faction: ['Human'],
+    },
   });
   expect(response['statusCode']).toBe(200);
 
   let body = JSON.parse(response['body']);
 
-  body.forEach(element => {
+  body.forEach((element) => {
     expect(element['faction']).toBe('Terran');
   });
 });
@@ -137,14 +137,14 @@ test('Ensure quotes returns 200 with only terran quotes', async () => {
 test('Ensure quotes returns 200 with no terran or zerg quotes', async () => {
   let response = await handler.quotes({
     multiValueQueryStringParameters: {
-      not_faction: ['Terran', 'Zerg']
-    }
+      not_faction: ['Terran', 'Zerg'],
+    },
   });
   expect(response['statusCode']).toBe(200);
 
   let body = JSON.parse(response['body']);
 
-  body.forEach(element => {
+  body.forEach((element) => {
     expect(element['faction']).not.toBe('Terran');
     expect(element['faction']).not.toBe('Zerg');
   });
@@ -153,14 +153,14 @@ test('Ensure quotes returns 200 with no terran or zerg quotes', async () => {
 test('Ensure quotes returns 200 with only marine unit', async () => {
   let response = await handler.quotes({
     multiValueQueryStringParameters: {
-      unit: ['Marine']
-    }
+      unit: ['Marine'],
+    },
   });
   expect(response['statusCode']).toBe(200);
 
   let body = JSON.parse(response['body']);
 
-  body.forEach(element => {
+  body.forEach((element) => {
     expect(element['unit']).toBe('Marine');
   });
 });
@@ -168,14 +168,14 @@ test('Ensure quotes returns 200 with only marine unit', async () => {
 test('Ensure quotes returns 200 with no marine or marauder units', async () => {
   let response = await handler.quotes({
     multiValueQueryStringParameters: {
-      not_unit: ['Marine', 'Marauder']
-    }
+      not_unit: ['Marine', 'Marauder'],
+    },
   });
   expect(response['statusCode']).toBe(200);
 
   let body = JSON.parse(response['body']);
 
-  body.forEach(element => {
+  body.forEach((element) => {
     expect(element['unit']).not.toBe('Marine');
     expect(element['unit']).not.toBe('Marauder');
   });
@@ -184,14 +184,14 @@ test('Ensure quotes returns 200 with no marine or marauder units', async () => {
 test('Ensure quotes returns 200 with only pissed action', async () => {
   let response = await handler.quotes({
     multiValueQueryStringParameters: {
-      action: ['Pissed']
-    }
+      action: ['Pissed'],
+    },
   });
   expect(response['statusCode']).toBe(200);
 
   let body = JSON.parse(response['body']);
 
-  body.forEach(element => {
+  body.forEach((element) => {
     expect(element['action']).toBe('Pissed');
   });
 });
@@ -199,14 +199,14 @@ test('Ensure quotes returns 200 with only pissed action', async () => {
 test('Ensure quotes returns 200 with no pissed or attack actions', async () => {
   let response = await handler.quotes({
     multiValueQueryStringParameters: {
-      not_action: ['Pissed', 'Attack']
-    }
+      not_action: ['Pissed', 'Attack'],
+    },
   });
   expect(response['statusCode']).toBe(200);
 
   let body = JSON.parse(response['body']);
 
-  body.forEach(element => {
+  body.forEach((element) => {
     expect(element['action']).not.toBe('Pissed');
     expect(element['action']).not.toBe('Attack');
   });
@@ -215,14 +215,14 @@ test('Ensure quotes returns 200 with no pissed or attack actions', async () => {
 test('Ensure quotes returns 200 with only queried text', async () => {
   let response = await handler.quotes({
     multiValueQueryStringParameters: {
-      text: ['Death']
-    }
+      text: ['Death'],
+    },
   });
   expect(response['statusCode']).toBe(200);
 
   let body = JSON.parse(response['body']);
 
-  body.forEach(element => {
+  body.forEach((element) => {
     expect(element['value']).toContain('Death');
   });
 });
@@ -230,14 +230,14 @@ test('Ensure quotes returns 200 with only queried text', async () => {
 test('Ensure quotes returns 200 with only heroes', async () => {
   let response = await handler.quotes({
     multiValueQueryStringParameters: {
-      is_hero: ['true']
-    }
+      is_hero: ['true'],
+    },
   });
   expect(response['statusCode']).toBe(200);
 
   let body = JSON.parse(response['body']);
 
-  body.forEach(element => {
+  body.forEach((element) => {
     expect(element['isHero']).toBe(true);
   });
 });
@@ -245,14 +245,14 @@ test('Ensure quotes returns 200 with only heroes', async () => {
 test('Ensure quotes returns 200 with no heroes', async () => {
   let response = await handler.quotes({
     multiValueQueryStringParameters: {
-      is_hero: ['false']
-    }
+      is_hero: ['false'],
+    },
   });
   expect(response['statusCode']).toBe(200);
 
   let body = JSON.parse(response['body']);
 
-  body.forEach(element => {
+  body.forEach((element) => {
     expect(element['isHero']).toBe(false);
   });
 });
@@ -260,14 +260,14 @@ test('Ensure quotes returns 200 with no heroes', async () => {
 test('Ensure quotes returns 200 with only melee', async () => {
   let response = await handler.quotes({
     multiValueQueryStringParameters: {
-      is_melee: ['true']
-    }
+      is_melee: ['true'],
+    },
   });
   expect(response['statusCode']).toBe(200);
 
   let body = JSON.parse(response['body']);
 
-  body.forEach(element => {
+  body.forEach((element) => {
     expect(element['isMelee']).toBe(true);
   });
 });
@@ -275,14 +275,14 @@ test('Ensure quotes returns 200 with only melee', async () => {
 test('Ensure quotes returns 200 with no melee', async () => {
   let response = await handler.quotes({
     multiValueQueryStringParameters: {
-      is_melee: ['false']
-    }
+      is_melee: ['false'],
+    },
   });
   expect(response['statusCode']).toBe(200);
 
   let body = JSON.parse(response['body']);
 
-  body.forEach(element => {
+  body.forEach((element) => {
     expect(element['isMelee']).toBe(false);
   });
 });
@@ -290,8 +290,8 @@ test('Ensure quotes returns 200 with no melee', async () => {
 test('Ensure quotes returns 200 with correct limit and offset', async () => {
   let response = await handler.quotes({
     multiValueQueryStringParameters: {
-      limit: [100]
-    }
+      limit: [100],
+    },
   });
   expect(response['statusCode']).toBe(200);
   let body = JSON.parse(response['body']);
@@ -300,8 +300,8 @@ test('Ensure quotes returns 200 with correct limit and offset', async () => {
   let response2 = await handler.quotes({
     multiValueQueryStringParameters: {
       limit: [100],
-      offset: [50]
-    }
+      offset: [50],
+    },
   });
   expect(response2['statusCode']).toBe(200);
   let body2 = JSON.parse(response2['body']);
@@ -314,8 +314,8 @@ test('Ensure quotesRandom returns 200 with random quote', async () => {
   let response = await handler.quotesRandom({
     multiValueQueryStringParameters: {
       unit: ['Marine'],
-      action: ['Pissed']
-    }
+      action: ['Pissed'],
+    },
   });
   expect(response['statusCode']).toBe(200);
 
@@ -329,7 +329,7 @@ test('Ensure quotesRandom returns 200 with random quote', async () => {
 
 test('Ensure quoteId returns 200 with correct quote', async () => {
   let response = await handler.quotesId({
-    pathParameters: { id: '8c49bcc5-e4e3-5dc1-b538-1b10e70e7c57' }
+    pathParameters: { id: '8c49bcc5-e4e3-5dc1-b538-1b10e70e7c57' },
   });
   expect(response['statusCode']).toBe(200);
 
@@ -343,7 +343,7 @@ test('Ensure quoteId returns 200 with correct quote', async () => {
 
 test('Ensure quoteId returns 400 with message', async () => {
   let response = await handler.quotesId({
-    pathParameters: { id: 'yahaha!' }
+    pathParameters: { id: 'yahaha!' },
   });
   expect(response['statusCode']).toBe(400);
 
@@ -370,8 +370,8 @@ test('Ensure all units are returend', async () => {
 test('Ensure only hero units are returned', async () => {
   let response = await handler.units({
     multiValueQueryStringParameters: {
-      is_hero: ['true']
-    }
+      is_hero: ['true'],
+    },
   });
   expect(response['statusCode']).toBe(200);
 
@@ -383,8 +383,8 @@ test('Ensure only four units are returned with offset', async () => {
   let response = await handler.units({
     multiValueQueryStringParameters: {
       limit: ['4'],
-      offset: ['4']
-    }
+      offset: ['4'],
+    },
   });
   expect(response['statusCode']).toBe(200);
 
